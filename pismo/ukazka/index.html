@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARLing Draw M1</title>
+<meta name="description" content="Skúšobná stránka písma ARLing Draw M1: grotesk s ostrými rezmi a osou DRAW, ktorý sa sám napíše.">
+<meta name="robots" content="noindex">
+<link rel="preload" href="../vystup/ARLingDraw-VF-sk-cz.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../vystup/ARLingDrawText-VF.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styl.css">
+<script src="pisanie.js" defer></script>
+</head>
+<body>
+<header class="hlavicka">
+  <p><b>ARLing Draw</b> <span>M1, skúšobná stránka, latinka s diakritikou</span></p>
+  <button type="button" class="znova" data-znova="#nadpis">Napísať znova</button>
+</header>
+
+<main>
+  <h1 id="nadpis" class="napis pismo" data-trvanie="560" data-rozostup="130" data-dychanie="1">ARLing</h1>
+  <p class="podnadpis">Grotesk s ostrými rezmi, ktorý sa píše. Os DRAW: pri 0 nie je nič, pri 1000 je písmeno celé, ťahy pribúdajú v poradí a smere ruky. Mäkčeň, dĺžeň aj bodky sa píšu až po písmene. Každý voľný koniec oblúka je zrezaný pod jedným uhlom pera 12°, bodky sú štvorce. Text ostáva textom, dá sa označiť aj skopírovať.</p>
+
+  <section class="skusobna" aria-labelledby="diakritika-nadpis">
+    <h2 id="diakritika-nadpis">Diakritika sa píše posledná</h2>
+    <p id="nadpis-sk" class="napis pismo diakriticky-napis" data-trvanie="520" data-rozostup="90">Kŕdeľ ďatľov</p>
+    <button type="button" class="znova" data-znova="#nadpis-sk">Napísať znova</button>
+  </section>
+
+  <section class="tmave" aria-labelledby="tmave-nadpis">
+    <h2 id="tmave-nadpis">Na tmavom, 700 a 400</h2>
+    <p class="tmave-slovo pismo"><span class="w700">ARLing</span> <span class="w400">ARLing</span></p>
+  </section>
+
+  <section class="skusobna" aria-labelledby="skusobna-nadpis">
+    <h2 id="skusobna-nadpis">Ručne po osiach</h2>
+    <div class="ovladace">
+      <label for="os-draw">DRAW <output id="os-draw-hodnota" for="os-draw">1000</output></label>
+      <input type="range" id="os-draw" min="0" max="1000" step="1" value="1000" data-os="--draw" data-ciel=".vzorka">
+      <label for="os-wght">wght <output id="os-wght-hodnota" for="os-wght">400</output></label>
+      <input type="range" id="os-wght" min="200" max="800" step="1" value="400" data-os="--wght" data-ciel=".vzorka">
+    </div>
+    <p class="vzorka pismo vzorka-velka">Prvé platby. Ťažký ďateľ</p>
+    <p class="vzorka pismo vzorka-stredna">Kŕdeľ ďatľov učí koňa žrať kôru. Příliš žluťoučký kůň úpěl ďábelské ódy. 0123456789</p>
+  </section>
+
+  <section class="abeceda" aria-labelledby="abeceda-nadpis">
+    <h2 id="abeceda-nadpis">Celá sada, píše sa znak po znaku</h2>
+    <p class="sada pismo" data-sada>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+    <p class="sada pismo" data-sada>abcdefghijklmnopqrstuvwxyz</p>
+    <p class="sada pismo" data-sada>0123456789 &amp;@#%€$£§°©®™</p>
+    <p class="sada pismo" data-sada>.,:;!?¡¿'"‘’“”„‚()[]{}/\|-–—_+=&lt;&gt;*~^…·•×÷±«»‹›</p>
+    <p class="sada pismo" data-sada>áäčďéíĺľňóôŕšťúýžěřů ÁÄČĎÉÍĹĽŇÓÔŔŠŤÚÝŽĚŘŮ</p>
+    <p class="sada pismo-text">öüß ąćęłńśźż őű àâæçèêëîïœùûÿ ñ ÖÜẞ ĄĆĘŁŃŚŹŻ ŐŰ ÀÂÆÇÈÊËÎÏŒÙÛŸ Ñ</p>
+    <p class="poznamka">Písané riadky sú v podmnožine sk-cz (latinka a diakritika SK a CZ v jednom súbore, kerning platí aj pre Ťo či ďl). Ostatné jazyky (DE, PL, HU, FR, ES) sú v poslednom riadku v ARLing Draw Text a v celom písme ARLingDraw-VF.woff2 na filmy.</p>
+  </section>
+
+  <section class="jazyky" aria-labelledby="jazyky-nadpis">
+    <h2 id="jazyky-nadpis">Sedem jazykov: SK, CZ, DE, PL, HU, FR, ES</h2>
+    <div class="vety pismo-text">
+      <p lang="sk">Príliš žltučký kôň úpel ďábelské ódy.</p>
+      <p lang="sk">Kŕdeľ ďatľov učí koňa žrať kôru.</p>
+      <p lang="de">Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.</p>
+      <p lang="pl">Zażółć gęślą jaźń.</p>
+      <p lang="hu">Árvíztűrő tükörfúrógép.</p>
+      <p lang="fr">Voix ambiguë d'un cœur qui préfère la zéro.</p>
+      <p lang="es">El pingüino Wenceslao hizo kilómetros bajo exhaustiva lluvia y frío.</p>
+    </div>
+    <div class="vety vety-tucne pismo-text">
+      <p>ŤAŽKÝ ĎATEĽ, ĽAHKÁ ŤAVA. ŹREBIĘ ŻUJE. ÁÄ ŐŰ ÇÑ</p>
+    </div>
+    <p class="poznamka">Rez 400, pod ním 800 kapitálkami (znamienka nad kapitálkami sú nižšie a plochšie). Ťo, Ťa, ĽT či ďl majú vlastný kerning.</p>
+  </section>
+
+  <section class="hierarchia" aria-labelledby="hier-nadpis">
+    <h2 id="hier-nadpis">Hierarchia rezov</h2>
+    <p class="h-nadpis pismo-text">Písmo, ktoré sa píše samo</p>
+    <p class="h-podnadpis pismo-text">Nadpis 700, podnadpis 600, text 400, popisok 500</p>
+    <p class="h-text pismo-text">ARLing Draw sa píše samo. Pri DRAW 0 nie je nič, pri 1000 je písmeno celé a ťahy pribúdajú v poradí a smere, v akom by ich písala ruka; mäkčeň, dĺžeň a bodky prídu na konci. Každý rez je ostrý: kmene sú zrezané rovno na účiarí a výške x, voľné konce oblúkov jedným uhlom pera 12°, bodky sú štvorce.</p>
+    <p class="h-popisok pismo-text">Popisok 500, kapitálky, prestrkanie +0,08 em</p>
+    <div class="kontrast">
+      <span class="pismo k800">800</span><span class="pismo k200">200</span>
+    </div>
+  </section>
+
+  <section class="cisla" aria-labelledby="cisla-nadpis">
+    <h2 id="cisla-nadpis">Číslice: proporčné a tabulárne (tnum)</h2>
+    <p class="cisla-riadok pismo-text">1111 4747 1010<br>0123 9999 7171</p>
+    <p class="cisla-riadok pismo-text tab">1111 4747 1010<br>0123 9999 7171</p>
+    <p class="poznamka">Statické texty na tejto stránke (hierarchia, číslice) sú v ARLing Draw Text (len os wght, celá sada s diakritikou asi 35 kB, font-display: swap); ARLing Draw s osou DRAW sa načíta len pre nápisy, ktoré sa píšu. Druhý blok má <code>font-variant-numeric: tabular-nums</code>: všetky číslice rovnako široké, odpočítavanie vo filmoch neskáče.</p>
+  </section>
+
+  <section class="len-css" aria-labelledby="css-nadpis">
+    <h2 id="css-nadpis">Len CSS, bez skriptu</h2>
+    <p class="css-pis pismo">Draw 1000</p>
+    <p class="css-pis css-pis-tucne pismo">ARLing</p>
+    <p class="poznamka">Animuje sa priamo <code>font-variation-settings</code> v <code>@keyframes</code>, celý riadok naraz, dookola.</p>
+  </section>
+
+  <section class="kontrola" aria-labelledby="kontrola-nadpis">
+    <h2 id="kontrola-nadpis">Čo skontrolovať v Chrome aj vo Firefoxe</h2>
+    <ol>
+      <li>Nadpis sa píše po písmenách, konce ťahov sú počas písania rovno zrezané (žiadne guľaté hroty), po dopísaní hrúbka pomaly dýcha.</li>
+      <li>Riadky celej sady sa píšu znak po znaku; nič nebliká, očká (o, 8, &amp;, @) sa nezalejú atramentom.</li>
+      <li>Pri „Kŕdeľ ďatľov“ sa mäkčeň a dĺžeň napíšu až po písmene; apostrof ď a ľ sa nedotkne ďalšieho písmena.</li>
+      <li>Posuvník DRAW: pri 0 prázdno, cestou len pribúdajú ťahy. Posuvník wght: 200 až 800 bez skokov a bez vlnenia oblúkov (najmä 600 a 700).</li>
+      <li>Tabulárne číslice majú rovnakú šírku, proporčné nie.</li>
+      <li>Pri zapnutom obmedzení pohybu je všetko hneď celé a nič sa nehýbe; na šírke 390 px nič nepretečie.</li>
+    </ol>
+  </section>
+</main>
+
+<footer class="pata">
+  <p>ARLing s. r. o., 2026. Písmo je návrh M1 (latinka s diakritikou SK, CZ, DE, PL, HU, FR, ES), ešte sa ladí (pokus 2 kontroly kvality).</p>
+</footer>
+</body>
+</html>
