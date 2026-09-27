@@ -204,13 +204,23 @@ footer{padding-block:48px 40px;color:var(--muted);font-size:14px}
     document.querySelectorAll("video[data-slucka]").forEach(function (v) { v.controls = true; });
     return;
   }
+  // Naraz hrajú najviac 4 slučky (27. 9.: 16 naraz na počítači brzdilo Firefox); ostatné ukážu plagát.
+  var MAX = 4, viditelne = [];
+  function prehraj() {
+    viditelne.forEach(function (v, i) {
+      if (i < MAX) { if (v.paused) { v.preload = "auto"; var r = v.play(); if (r && r.catch) r.catch(function () {}); } }
+      else if (!v.paused) v.pause();
+    });
+  }
   var io = new IntersectionObserver(function (zaznamy) {
     zaznamy.forEach(function (z) {
-      var v = z.target;
-      if (z.isIntersecting) { v.preload = "auto"; var r = v.play(); if (r && r.catch) r.catch(function () {}); }
-      else v.pause();
+      var v = z.target, i = viditelne.indexOf(v);
+      if (z.isIntersecting && i < 0) viditelne.push(v);
+      if (!z.isIntersecting && i >= 0) { viditelne.splice(i, 1); v.pause(); }
     });
+    prehraj();
   }, { threshold: 0.6 });
+  document.addEventListener("visibilitychange", function () { if (document.hidden) viditelne.forEach(function (v) { v.pause(); }); else prehraj(); });
   document.querySelectorAll("video[data-slucka]").forEach(function (v) { io.observe(v); });
 })();
 </script>
